@@ -9,7 +9,7 @@ const useLogout = () => {
 	const logout = async () => {
 		setLoading(true);
 		try {
-			const API = import.meta.env.REACT_APP_API_URL;
+			const API = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API}/api/auth/logout`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
