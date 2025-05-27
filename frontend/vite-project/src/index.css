@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 body {
-	background:  url("./bg.jpeg");
-	
+	background: #121212;
+
 }
 ::-webkit-scrollbar {
 	width: 8px;
