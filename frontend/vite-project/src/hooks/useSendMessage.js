@@ -9,7 +9,7 @@ const useSendMessage = () => {
 	const sendMessage = async (message) => {
 		setLoading(true);
 		try {
-			const API = import.meta.env.VITE_API_URL;
+			const API = import.meta.env.VITE_API_URL|| "http://localhost:3000"; // Fallback to local server if not set
 			const res = await fetch(`${API}/api/messages/send/${selectedConversation._id}`, {
 				method: "POST",
 				headers: {
@@ -17,6 +17,7 @@ const useSendMessage = () => {
 				},
 				credentials: "include",
 				body: JSON.stringify({ message }),
+				credentials: "include",
 			});
 			const data = await res.json();
 			if (data.error) throw new Error(data.error);

@@ -10,8 +10,10 @@ const useGetMessages = () => {
 		const getMessages = async () => {
 			setLoading(true);
 			try {
-				const API = import.meta.env.VITE_API_URL;
-				const res = await fetch(`${API}/api/messages/${selectedConversation._id}`);
+				const API = import.meta.env.VITE_API_URL|| "http://localhost:3000"; // Fallback to local server if not set
+				const res = await fetch(`${API}/api/messages/${selectedConversation._id}`, {
+					credentials: "include",
+				});
 				const data = await res.json();
 				if (data.error) throw new Error(data.error);
 				setMessages(data);

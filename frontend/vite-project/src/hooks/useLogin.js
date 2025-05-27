@@ -11,12 +11,12 @@ const useLogin = () => {
 		if (!success) return;
 		setLoading(true);
 		try {
-			const API = import.meta.env.VITE_API_URL ;
-;
+			const API = import.meta.env.VITE_API_URL|| "http://localhost:3000";
 			const res = await fetch(`${API}/api/auth/login`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ username, password }),
+				credentials: "include",
 			});
 
 			const data = await res.json();
