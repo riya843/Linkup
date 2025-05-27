@@ -9,7 +9,7 @@ const useSendMessage = () => {
 	const sendMessage = async (message) => {
 		setLoading(true);
 		try {
-			const API = process.env.REACT_APP_API_URL;
+			const API = import.meta.env.REACT_APP_API_URL;
 			const res = await fetch(`${API}/api/messages/send/${selectedConversation._id}`, {
 				method: "POST",
 				headers: {

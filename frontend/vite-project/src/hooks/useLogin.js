@@ -11,7 +11,8 @@ const useLogin = () => {
 		if (!success) return;
 		setLoading(true);
 		try {
-			const API = process.env.REACT_APP_API_URL;
+			const API = import.meta.env.REACT_APP_API_URL ;
+;
 			const res = await fetch(`${API}/api/auth/login`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },

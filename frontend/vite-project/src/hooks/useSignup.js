@@ -12,7 +12,7 @@ const useSignup = () => {
 
 		setLoading(true);
 		try {
-			const API = process.env.REACT_APP_API_URL;
+			const API = import.meta.env.REACT_APP_API_URL;
 
 			const res = await fetch(`${API}/api/auth/signup`, {
 				method: "POST",
